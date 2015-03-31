@@ -32,7 +32,7 @@ Include `docker-simple` in your run_list.
 #
 ## Running the tests
 
-This cookbook uses the [Foodcritic](http://www.foodcritic.io/) linter, [ChefSpec](http://sethvargo.github.io/chefspec/) for unit testing, and [ServerSpec](http://serverspec.org/) for integration testing via [Test Kitchen](http://kitchen.ci/) with the [kitchen-docker](https://github.com/portertech/kitchen-docker) driver.
+This cookbook uses the [Foodcritic](http://www.foodcritic.io/) linter, [ChefSpec](http://sethvargo.github.io/chefspec/) for unit testing, and [ServerSpec](http://serverspec.org/) for integration testing via [Test Kitchen](http://kitchen.ci/) with the [kitchen-vagrant](https://github.com/test-kitchen/kitchen-vagrant) driver.
 
 It's not as complicated as it sounds, but you will need to have Docker installed.
 
