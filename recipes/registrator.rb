@@ -6,7 +6,7 @@ command = node['docker-simple']['registrator']['command']
 
 compose = {
   "registrator": {
-    .image": "gliderlabs/registrator:#{tag}",
+    "image": "gliderlabs/registrator:#{tag}",
     "command": command,
     "volumes": [
       "/var/run/docker.sock:/tmp/docker.sock"
