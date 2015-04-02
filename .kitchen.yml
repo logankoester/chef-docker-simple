@@ -31,3 +31,6 @@ suites:
       - 'recipe[docker-simple::compose]'
     data_bags_path: 'test/integration/data_bags'
     attributes:
+      containers: [
+        'nginx'
+      ]

@@ -1,0 +1,18 @@
+{
+  "id": "nginx",
+  "compose": {
+    "nginx": {
+      "image": "nginx",
+      "ports": [
+        "80"
+      ],
+      "environment": {
+        "SERVICE_NAME": "nginx"
+      },
+      "links": [
+      ],
+      "volumes": [
+      ]
+    }
+  }
+}
