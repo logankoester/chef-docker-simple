@@ -5,11 +5,11 @@ ip = node['docker-simple']['registrator']['ip']
 command = node['docker-simple']['registrator']['command']
 
 compose = {
-  "registrator": {
-    "image": "gliderlabs/registrator:#{tag}",
-    "command": command,
-    "volumes": [
-      "/var/run/docker.sock:/tmp/docker.sock"
+  'registrator' => {
+    'image' => "gliderlabs/registrator:#{tag}",
+    'command' => command,
+    'volumes' => [
+      '/var/run/docker.sock:/tmp/docker.sock'
     ]
   }
 }
