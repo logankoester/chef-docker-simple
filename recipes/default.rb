@@ -24,7 +24,9 @@ template '/etc/docker/env' do
   mode '0644'
 end
 
-service 'docker' do
-  supports status: true, restart: true
-  action [:enable, :start]
+unless node['docker-simple']['skip_service']
+  service 'docker' do
+    supports status: true, restart: true
+    action [:enable, :start]
+  end
 end
