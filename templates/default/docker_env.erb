@@ -1,1 +1,1 @@
-OPTIONS="--host=<%= @options['host'] %> --ip=<%= @options['ip'] %> -g <%= @options['graph'] %>"
+OPTIONS="--host=unix:///var/run/docker.sock --host=<%= @options['host'] %> --ip=<%= @options['ip'] %> -g <%= @options['graph'] %>"
