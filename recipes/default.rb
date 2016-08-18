@@ -1,4 +1,5 @@
 package('docker') { action :install }
+package('docker-machine') { action :install }
 
 template '/usr/lib/systemd/system/docker.service' do
   source 'docker.service.erb'

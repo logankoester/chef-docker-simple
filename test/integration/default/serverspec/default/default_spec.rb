@@ -9,6 +9,10 @@ describe package('docker') do
   it { should be_installed }
 end
 
+describe package('docker-machine') do
+  it { should be_installed }
+end
+
 describe file('/etc/docker') do
   it { should be_directory }
 end

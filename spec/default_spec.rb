@@ -19,6 +19,10 @@ describe 'docker-simple::default' do
       expect(chef_run).to install_package 'docker'
     end
 
+    it 'should install the docker-machine package' do
+      expect(chef_run).to install_package 'docker-machine'
+    end
+
     it 'should enable the docker service' do
       expect(chef_run).to enable_service 'docker'
     end
