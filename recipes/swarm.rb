@@ -14,14 +14,15 @@ compose = {
     },
     'manager' => {
       'image' => 'swarm',
-      'command' => "\"'manage \
-        --host :3376 \
-        --strategy '#{manager_strategy}' \
-        --tlsverify \
-        --tlscacert=/certs/ca.pem \
-        --tlscert=/certs/cert.pem \
-        --tlskey=/certs/key.pem \
-        #{discovery}\"",
+      'command' => [
+        'manage',
+        '--host :3376',
+        "--strategy=#{manager_strategy}",
+        '--tlsverify',
+        '--tlscacert=/certs/ca.pem',
+        '--tlscert=/certs/cert.pem',
+        '--tlskey=/certs/key.pem',
+        discovery].join(' '),
       'volumes' => [
         "#{certs_path}:/certs:ro"
       ],
