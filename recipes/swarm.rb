@@ -13,15 +13,15 @@ compose = {
       'command' => "join --advertise=#{worker_addr}:2375 #{discovery}"
     },
     'manager' => {
-      'image': 'swarm',
-      'command' => "manage \
+      'image' => 'swarm',
+      'command' => "\"'manage \
         --host :3376 \
         --strategy '#{manager_strategy}' \
         --tlsverify \
         --tlscacert=/certs/ca.pem \
         --tlscert=/certs/cert.pem \
         --tlskey=/certs/key.pem \
-        #{discovery}",
+        #{discovery}\"",
       'volumes' => [
         "#{certs_path}:/certs:ro"
       ],
