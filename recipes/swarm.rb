@@ -28,7 +28,7 @@ compose = {
       ],
       'ports' => ['3376:3376'],
       'environment' => {
-        'SERVICE_NAME' => 'swarm'
+        'SERVICE_3376_NAME' => 'swarm'
       }
     }
   }
