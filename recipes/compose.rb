@@ -1,10 +1,4 @@
-include_recipe 'pacman'
-
-%w{
-  docker-compose
-}.each do |pkg|
-  pacman_aur(pkg){ action [:build, :install] }
-end
+package('docker-compose') { action :install }
 
 data_bag('containers').each do |app_id|
   next unless node['containers'].include? app_id
