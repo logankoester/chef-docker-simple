@@ -2,7 +2,6 @@ container_path = '/var/lib/container/swarm'
 
 discovery = node['docker-simple']['swarm']['discovery']
 worker_addr = node['docker-simple']['swarm']['worker']['addr']
-manager_host = node['docker-simple']['swarm']['manager']['host']
 manager_strategy = node['docker-simple']['swarm']['manager']['strategy']
 certs_path = node['docker-simple']['swarm']['tls']['certs_path']
 
@@ -16,7 +15,7 @@ compose = {
     'manager' => {
       'image': 'swarm',
       'command' => "manage \
-        --host #{manager_host}:3376 \
+        --host :3376 \
         --strategy '#{manager_strategy}' \
         --tlsverify \
         --tlscacert=/certs/ca.pem \

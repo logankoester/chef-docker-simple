@@ -15,6 +15,5 @@ default['containers'] = []
 
 default['docker-simple']['swarm']['discovery'] = 'consul://127.0.0.1:8500'
 default['docker-simple']['swarm']['worker']['addr'] = '0.0.0.0'
-default['docker-simple']['swarm']['manager']['host'] = '0.0.0.0'
 default['docker-simple']['swarm']['manager']['strategy'] = 'spread'
 default['docker-simple']['swarm']['tls']['certs_path'] = '/etc/consul/ssl/certs'
