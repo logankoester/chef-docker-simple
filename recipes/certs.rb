@@ -1,4 +1,4 @@
-ca_cert = ssl_certificate 'ca.dancesafe.org' do
+ca_cert = ssl_certificate 'ca_cert' do
   common_name 'ca_cert'
   source 'data-bag'
   bag 'ssl'
