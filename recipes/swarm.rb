@@ -10,13 +10,13 @@ compose = {
   'services' => {
     'worker' => {
       'image' => 'swarm',
-      'command' => "join --advertise=#{worker_addr}:2375 #{discovery}"
+      'command' => "join --advertise=#{worker_addr}:2376 #{discovery}"
     },
     'manager' => {
       'image' => 'swarm',
       'command' => [
         'manage',
-        '--host :3376',
+        '--host 0.0.0.0:3376',
         "--strategy=#{manager_strategy}",
         '--tlsverify',
         '--tlscacert=/certs/ca.pem',
