@@ -1,5 +1,5 @@
 ca_cert = ssl_certificate 'ca.dancesafe.org' do
-  common_name 'ca.dancesafe.org'
+  common_name 'ca_cert'
   source 'data-bag'
   bag 'ssl'
   item 'ca_cert'
@@ -9,6 +9,7 @@ end
 
 cert = ssl_certificate 'docker' do
   cert_source 'with_ca'
+  key_source 'self-signed'
   ca_cert_path ca_cert.cert_path
   ca_key_path ca_cert.key_path
 
