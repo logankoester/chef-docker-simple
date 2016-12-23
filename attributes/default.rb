@@ -18,5 +18,5 @@ default['docker-simple']['swarm']['worker']['addr'] = '0.0.0.0'
 default['docker-simple']['swarm']['manager']['strategy'] = 'spread'
 default['docker-simple']['swarm']['tls']['certs_path'] = '/etc/consul/ssl/certs'
 
-node['docker-simple']['ssl']['domain'] = ''
-node['docker-simple']['ssl']['subject_alternate_names'] = []
+default['docker-simple']['ssl']['domain'] = ''
+default['docker-simple']['ssl']['subject_alternate_names'] = []
