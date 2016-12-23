@@ -2,8 +2,9 @@ ca_cert = ssl_certificate 'ca_cert' do
   common_name 'ca_cert'
   source 'data-bag'
   bag 'ssl'
-  item 'ca_cert'
+  key_item 'ca_cert'
   key_item_key 'key'
+  cert_item 'ca_cert'
   cert_item_key 'cert'
 end
 
