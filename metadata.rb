@@ -8,6 +8,6 @@ version '0.2.3'
 
 depends 'pacman'
 depends 'ssl_certificate'
-depends 'npm'
+depends 'nodejs'
 
 supports 'arch'
