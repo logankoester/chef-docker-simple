@@ -4,8 +4,10 @@
 include_recipe 'pacman'
 
 %w{ vault-pki-client }.each do |pkg|
-  pacman_aur(pkg){ action [:build, :install] }
-  notifies :create, 'template[vault-pki-client-config]', :immediately
+  pacman_aur(pkg) do
+    action [:build, :install]
+    notifies :create, 'template[vault-pki-client-config]', :immediately
+  end
 end
 
 template 'vault-pki-client-config' do
