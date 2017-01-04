@@ -1,13 +1,14 @@
 # Install vault-pki-client and configure it to request and
 # manage the lifecycle of Docker certificates.
 
-include_recipe 'pacman'
+include_recipe 'nodejs::npm'
 
-%w{ vault-pki-client }.each do |pkg|
-  pacman_aur(pkg) do
-    action [:build, :install]
-    notifies :create, 'template[vault-pki-client-config]', :immediately
-  end
+nodejs_npm 'vault-pki-client'
+
+template '/usr/lib/systemd/system/vault-pki-client.service' do
+  source 'vault-pki-client/service.erb'
+  action :create
+  mode '0644'
 end
 
 template 'vault-pki-client-config' do
