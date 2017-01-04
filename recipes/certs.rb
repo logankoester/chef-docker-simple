@@ -1,54 +1,23 @@
-ca_cert = ssl_certificate 'ca_cert' do
-  common_name 'ca_cert'
-  source 'data-bag'
-  bag 'ssl'
-  key_item 'ca_cert'
-  key_item_key 'key'
-  cert_item 'ca_cert'
-  cert_item_key 'cert'
+# Install vault-pki-client and configure it to request and
+# manage the lifecycle of Docker certificates.
+
+include_recipe 'pacman'
+
+%w{ vault-pki-client }.each do |pkg|
+  pacman_aur(pkg){ action [:build, :install] }
+  notifies :create, 'template[vault-pki-client-config]', :immediately
 end
 
-file '/etc/docker/certs/ca/ca.pem' do
-  owner 'root'
-  group 'root'
+template 'vault-pki-client-config' do
+  path '/etc/vault-pki-client/config' 
+  source 'vault-pki-client/config.erb'
+  action :create
+  variables options: node['docker-simple']['pki']
   mode '0644'
-  content ca_cert.cert_content
+  notifies :restart, 'service[vault-pki-client]', :immediately
 end
 
-file '/etc/docker/certs/ca/key.pem' do
-  owner 'root'
-  group 'root'
-  mode '0644'
-  content ca_cert.key_content
-end
-
-cert = ssl_certificate 'docker' do
-  cert_source 'with_ca'
-  key_source 'self-signed'
-  ca_cert_path '/etc/docker/certs/ca/ca.pem'
-  ca_key_path '/etc/docker/certs/ca/key.pem'
-
-  common_name node['docker-simple']['ssl']['domain']
-  subject_alternate_names node['docker-simple']['ssl']['subject_alternate_names']
-end
-
-file '/etc/docker/certs/ca.pem' do
-  owner 'root'
-  group 'root'
-  mode '0644'
-  content ca_cert.cert_content
-end
-
-file '/etc/docker/certs/cert.pem' do
-  owner 'root'
-  group 'root'
-  mode '0644'
-  content cert.cert_content
-end
-
-file '/etc/docker/certs/key.pem' do
-  owner 'root'
-  group 'root'
-  mode '0644'
-  content cert.key_content
+service 'vault-pki-client' do
+  supports status: true, restart: true
+  action [:enable, :start]
 end
