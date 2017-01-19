@@ -10,7 +10,7 @@ compose = {
   'services' => {
     'worker' => {
       'image' => 'swarm',
-      'command' => "join --advertise=#{worker_addr}:2376 #{discovery}"
+      'command' => "join --advertise=#{worker_addr}:2376 #{discovery}",
       'restart' => 'unless-stopped'
     },
     'manager' => {
