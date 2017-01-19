@@ -11,6 +11,7 @@ compose = {
     'worker' => {
       'image' => 'swarm',
       'command' => "join --advertise=#{worker_addr}:2376 #{discovery}"
+      'restart' => 'unless-stopped'
     },
     'manager' => {
       'image' => 'swarm',
@@ -29,7 +30,8 @@ compose = {
       'ports' => ["#{worker_addr}:3376:3376"],
       'environment' => {
         'SERVICE_3376_NAME' => 'swarm'
-      }
+      },
+      'restart' => 'unless-stopped'
     }
   }
 }
