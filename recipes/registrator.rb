@@ -1,7 +1,6 @@
 container_path = '/var/lib/container/registrator'
 
 tag = node['docker-simple']['registrator']['tag']
-ip = node['docker-simple']['registrator']['ip']
 command = node['docker-simple']['registrator']['command']
 
 compose = {
@@ -10,7 +9,8 @@ compose = {
     'command' => command,
     'volumes' => [
       '/var/run/docker.sock:/tmp/docker.sock'
-    ]
+    ],
+    'restart' => 'unless-stopped'
   }
 }
 
