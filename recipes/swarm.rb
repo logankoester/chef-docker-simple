@@ -19,6 +19,7 @@ compose = {
         'manage',
         '--host 0.0.0.0:3376',
         "--strategy=#{manager_strategy}",
+        '--replication',
         '--tls',
         '--tlscacert=/certs/ca.pem',
         '--tlscert=/certs/cert.pem',
