@@ -18,7 +18,7 @@ compose = {
         'manage',
         '--host 0.0.0.0:3376',
         "--strategy=#{manager_strategy}",
-        '--tlsverify',
+        '--tls',
         '--tlscacert=/certs/ca.pem',
         '--tlscert=/certs/cert.pem',
         '--tlskey=/certs/key.pem',
@@ -26,7 +26,7 @@ compose = {
       'volumes' => [
         "#{certs_path}:/certs:ro"
       ],
-      'ports' => ['3376:3376'],
+      'ports' => ["#{worker_addr}:3376:3376"],
       'environment' => {
         'SERVICE_3376_NAME' => 'swarm'
       }
