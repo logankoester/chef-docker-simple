@@ -30,6 +30,6 @@ describe file('/etc/docker/env') do
 end
 
 describe file('/etc/docker/env') do
-  its(:content) { should match /0\.0\.0\.0/ }
-  its(:content) { should match /\/var\/lib\/docker/ }
+  its(:content) { should match(/0\.0\.0\.0/) }
+  its(:content) { should match(/\/var\/lib\/docker/) }
 end
