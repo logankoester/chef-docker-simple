@@ -25,3 +25,5 @@ default['docker-simple']['vault']['server']['ca-cert'] = node['etc_environment']
 default['docker-simple']['vault']['pki']['path'] = 'certs'
 default['docker-simple']['vault']['pki']['role'] = 'service.consul'
 default['docker-simple']['vault']['token'] = node['etc_environment']['VAULT_TOKEN']
+
+default['docker-simple']['cert']['certIPs'] = ['127.0.0.1']

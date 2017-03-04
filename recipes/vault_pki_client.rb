@@ -9,7 +9,8 @@ template '/etc/vault-pki-client/config' do
   owner 'root'
   group 'root'
   mode '0644'
-  variables :vault => node['docker-simple']['vault']
+  variables :vault => node['docker-simple']['vault'],
+    :cert => node['docker-simple']['cert']
   notifies :restart, 'service[vault-pki-client]', :immediate
 end
 

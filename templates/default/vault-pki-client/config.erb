@@ -16,7 +16,7 @@
   },
   "certCN": "swarm.service.consul",
   "certAltNames": [],
-  "certIPs": [],
+  "certIPs": [<%= @cert['certIPs'].map { |ip| "\"#{ip}\""}.join(',') %>],
   "certTTL": null,
   "certFile": "/etc/docker/certs/cert.pem",
   "keyFile": "/etc/docker/certs/key.pem",
