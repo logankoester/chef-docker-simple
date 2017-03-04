@@ -18,7 +18,10 @@ default['containers'] = []
 default['docker-simple']['swarm']['discovery'] = 'consul://127.0.0.1:8500'
 default['docker-simple']['swarm']['worker']['addr'] = '0.0.0.0'
 default['docker-simple']['swarm']['manager']['strategy'] = 'spread'
-default['docker-simple']['swarm']['tls']['certs_path'] = '/etc/consul/ssl/certs'
+default['docker-simple']['swarm']['tls']['certs_path'] = '/etc/docker/certs'
 
-default['docker-simple']['ssl']['domain'] = ''
-default['docker-simple']['ssl']['subject_alternate_names'] = []
+default['docker-simple']['vault']['server']['address'] = node['etc_environment']['VAULT_ADDR']
+default['docker-simple']['vault']['server']['ca-cert'] = node['etc_environment']['VAULT_CACERT']
+default['docker-simple']['vault']['pki']['path'] = 'certs'
+default['docker-simple']['vault']['pki']['role'] = 'service.consul'
+default['docker-simple']['vault']['token'] = node['etc_environment']['VAULT_TOKEN']

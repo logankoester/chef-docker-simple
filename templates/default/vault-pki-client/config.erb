@@ -1,0 +1,27 @@
+{
+  "vault": {
+    "server": {
+      "address": "<%= @vault['server']['address'] %>",
+      "ca-cert": "<%= @vault['server']['ca-cert'] %>",
+      "ca-path": null,
+      "tls-skip-verify": false,
+      "api-version": "v1"
+    },
+    "pki": {
+      "path": "<%= @vault['pki']['path'] %>",
+      "role": "<%= @vault['pki']['role'] %>"
+    },
+    "token": "<%= @vault['token'] %>",
+    "token-renewable": true
+  },
+  "certCN": "swarm.service.consul",
+  "certAltNames": [],
+  "certIPs": [],
+  "certTTL": null,
+  "certFile": "/etc/docker/certs/cert.pem",
+  "keyFile": "/etc/docker/certs/key.pem",
+  "caFile": "/etc/docker/certs/ca.pem",
+  "onUpdate": null,
+  "renewalCoefficient": 0.9,
+  "once": false
+}
