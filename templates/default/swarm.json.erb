@@ -1,0 +1,19 @@
+{
+  "service": {
+    "name": "swarm",
+    "tags": [],
+    "address": "<%= @swarm['address'] %>",
+    "port": 2376,
+    "enableTagOverride": false,
+    "checks": [
+      {
+        "id": "api",
+        "name": "Docker API ping",
+        "notes": "GET /_ping with client certificate",
+        "script": "curl -k -sS --cert-type pem --key /etc/docker/certs/key.pem --cert /etc/docker/certs/cert.pem https://<%= @swarm['address'] %>:2376/v1.26/_ping",
+        "interval": "10s",
+        "timeout": "1s"
+      }
+    ]
+  }
+}
