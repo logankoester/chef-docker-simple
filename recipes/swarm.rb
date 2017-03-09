@@ -1,8 +1,6 @@
-swarm = node['docker-simple']['swarm']
-
 template '/etc/consul/conf.d/swarm.json' do
   source 'swarm.json.erb'
-  variables swarm
+  variables swarm: node['docker-simple']['swarm']
   action :create
   mode '0644'
 end
