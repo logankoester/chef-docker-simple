@@ -5,5 +5,4 @@ template '/etc/consul/conf.d/swarm.json' do
   variables swarm
   action :create
   mode '0644'
-  notifies :reload, 'service[consul]', :immediate
 end
