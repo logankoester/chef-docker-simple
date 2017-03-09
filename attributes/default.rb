@@ -5,7 +5,6 @@ default['docker-simple']['options']['ip'] = '0.0.0.0'
 default['docker-simple']['options']['graph'] = '/var/lib/docker'
 default['docker-simple']['options']['host'] = 'fd://'
 default['docker-simple']['options']['dns'] = '8.8.8.8'
-default['docker-simple']['options']['cluster_store'] = 'consul://127.0.0.1:8500/swarm'
 
 default['docker-simple']['registrator']['tag'] = 'latest'
 default['docker-simple']['registrator']['command'] = '-h $HOSTNAME consul:'
