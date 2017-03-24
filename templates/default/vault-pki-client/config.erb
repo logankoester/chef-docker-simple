@@ -17,11 +17,11 @@
   "certCN": "swarm.service.consul",
   "certAltNames": [],
   "certIPs": [<%= @cert['certIPs'].map { |ip| "\"#{ip}\""}.join(',') %>],
-  "certTTL": null,
+  "certTTL": "<%= @cert['certTTL'] %>",
   "certFile": "/etc/docker/certs/cert.pem",
   "keyFile": "/etc/docker/certs/key.pem",
   "caFile": "/etc/docker/certs/ca.pem",
-  "onUpdate": null,
+  "onUpdate": "systemctl restart docker.service",
   "renewalCoefficient": 0.9,
   "once": false
 }

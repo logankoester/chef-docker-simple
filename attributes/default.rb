@@ -21,3 +21,4 @@ default['docker-simple']['vault']['pki']['role'] = 'service.consul'
 default['docker-simple']['vault']['token'] = node['etc_environment']['VAULT_TOKEN']
 
 default['docker-simple']['cert']['certIPs'] = ['127.0.0.1']
+default['docker-simple']['cert']['certTTL'] = '2160h'
