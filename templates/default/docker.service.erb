@@ -6,7 +6,7 @@ Requires=docker.socket
 
 [Service]
 EnvironmentFile=/etc/docker/env
-ExecStart=/usr/bin/docker daemon $OPTIONS
+ExecStart=/usr/bin/dockerd $OPTIONS
 MountFlags=slave
 LimitNOFILE=1048576
 LimitNPROC=1048576
