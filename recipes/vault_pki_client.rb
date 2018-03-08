@@ -2,7 +2,7 @@
 # credentials from Hashicorp Vault's PKI Secrets Backend before they expire.
 
 include_recipe 'pacman'
-pacman_aur('vault-pki-client'){ action [:build, :install] }
+pacman_aur('vault-pki-client'){ action [:install] }
 
 template '/etc/vault-pki-client/config' do
   source 'vault-pki-client/config.erb'
