@@ -8,7 +8,7 @@ default['docker-simple']['options']['dns'] = '8.8.8.8'
 default['docker-simple']['options']['storage_driver'] = 'overlay2'
 
 default['docker-simple']['registrator']['tag'] = 'latest'
-default['docker-simple']['registrator']['command'] = '-h $HOSTNAME consul:'
+default['docker-simple']['registrator']['command'] = '/bin/registrator -h $HOSTNAME consul:'
 
 # If true, will *not* enable or start the docker service
 default['docker-simple']['skip_service'] = false
